@@ -397,7 +397,7 @@ class _InputWidgetView
         children: <Widget>[
           if (!widget.selectorConfig.setSelectorButtonAsPrefixIcon)
             Expanded(
-              child: Column(
+              child: Row(
                 children: [
                   Column(
                     mainAxisSize: MainAxisSize.min,
