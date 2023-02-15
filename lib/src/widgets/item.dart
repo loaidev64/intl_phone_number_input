@@ -40,11 +40,17 @@ class Item extends StatelessWidget {
             showFlag: showFlag,
             useEmoji: useEmoji,
           ),
-          SizedBox(width: 12.0),
-          Text(
-            '$dialCode',
-            textDirection: TextDirection.ltr,
-            style: textStyle,
+          Expanded(
+            child: Column(
+              children: [
+                SizedBox(width: 12.0),
+                Text(
+                  '$dialCode',
+                  textDirection: TextDirection.ltr,
+                  style: textStyle,
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -67,7 +73,7 @@ class _Flag extends StatelessWidget {
             child: useEmoji!
                 ? Text(
                     Utils.generateFlagEmojiUnicode(country?.alpha2Code ?? ''),
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 : Image.asset(
                     country!.flagUri,
