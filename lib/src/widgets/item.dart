@@ -40,8 +40,8 @@ class Item extends StatelessWidget {
             showFlag: showFlag,
             useEmoji: useEmoji,
           ),
-          Expanded(
-            child: Column(
+          Flexible(
+            child: Row(
               children: [
                 SizedBox(width: 12.0),
                 Text(
