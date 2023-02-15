@@ -395,37 +395,30 @@ class _InputWidgetView
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          if (!widget.selectorConfig.setSelectorButtonAsPrefixIcon)
-            Expanded(
-              child: Row(
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SelectorButton(
-                        country: state.country,
-                        countries: state.countries,
-                        onCountryChanged: state.onCountryChanged,
-                        selectorConfig: widget.selectorConfig,
-                        selectorTextStyle: widget.selectorTextStyle,
-                        searchBoxDecoration: widget.searchBoxDecoration,
-                        locale: state.locale,
-                        isEnabled: widget.isEnabled,
-                        autoFocusSearchField: widget.autoFocusSearch,
-                        isScrollControlled:
-                            widget.countrySelectorScrollControlled,
-                      ),
-                      SizedBox(
-                        height: state.selectorButtonBottomPadding,
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: widget.spaceBetweenSelectorAndTextField),
-                ],
-              ),
+          if (!widget.selectorConfig.setSelectorButtonAsPrefixIcon) ...[
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SelectorButton(
+                  country: state.country,
+                  countries: state.countries,
+                  onCountryChanged: state.onCountryChanged,
+                  selectorConfig: widget.selectorConfig,
+                  selectorTextStyle: widget.selectorTextStyle,
+                  searchBoxDecoration: widget.searchBoxDecoration,
+                  locale: state.locale,
+                  isEnabled: widget.isEnabled,
+                  autoFocusSearchField: widget.autoFocusSearch,
+                  isScrollControlled: widget.countrySelectorScrollControlled,
+                ),
+                SizedBox(
+                  height: state.selectorButtonBottomPadding,
+                ),
+              ],
             ),
+            SizedBox(width: widget.spaceBetweenSelectorAndTextField),
+          ],
           Flexible(
-            flex: 2,
             child: TextFormField(
               key: widget.fieldKey ?? Key(TestHelper.TextInputKeyValue),
               textDirection: TextDirection.ltr,
