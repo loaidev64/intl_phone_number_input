@@ -25,6 +25,7 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     String dialCode = (country?.dialCode ?? '');
     if (trailingSpace) {
       dialCode = dialCode.padRight(5, "   ");
@@ -40,8 +41,8 @@ class Item extends StatelessWidget {
             showFlag: showFlag,
             useEmoji: useEmoji,
           ),
-          Flexible(
-            child: Row(
+          if (size.width < 350)
+            Row(
               children: [
                 SizedBox(width: 12.0),
                 Text(
@@ -51,7 +52,6 @@ class Item extends StatelessWidget {
                 ),
               ],
             ),
-          ),
         ],
       ),
     );
